@@ -64,6 +64,12 @@ cd $BUILD_DIR
 mkdir -p $VENDOR_DIR
 cd $VENDOR_DIR
 curl https://bitbucket.org/emaknyus/cbir_heroku_8_sep_16/raw/e6fa4bb4b420a06b482686eabae0f989b585a31f/cbir-heroku-8-sep-16.tar.gz -s -O
+
+echo "exporting PATH and LIBRARY_PATH" | indent
+PROFILE_PATH_B="$BUILD_DIR/.profile.d/cbir.sh"
+mkdir -p $(dirname $PROFILE_PATH_B)
+echo 'export PATH="$PATH:$HOME/vendor/darknet"' >> $PROFILE_PATH_B
+
 mkdir -p vendor/darknet
 tar -C vendor/darknet -xvf cbir-heroku-8-sep-16.tar.gz
 rm -rf cbir-heroku-8-sep-16.tar.gz
