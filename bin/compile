@@ -59,6 +59,14 @@ mkdir -p $(dirname $PROFILE_PATH)
 echo 'export PATH="$PATH:$HOME/vendor/ffmpeg/bin"' >> $PROFILE_PATH
 echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/vendor/ffmpeg/lib"' >> $PROFILE_PATH
 
+echo "-----> Installing DarkNet"
+cd $BUILD_DIR
+mkdir -p $VENDOR_DIR
+cd $VENDOR_DIR
+curl https://bitbucket.org/emaknyus/cbir_heroku_8_sep_16/raw/e6fa4bb4b420a06b482686eabae0f989b585a31f/cbir-heroku-8-sep-16.tar.gz -s -O
+mkdir -p vendor/darknet
+tar -C vendor/darknet -xvf cbir-heroku-8-sep-16.tar.gz
+rm -rf cbir-heroku-8-sep-16.tar.gz
 
 ### Handle errors
 
