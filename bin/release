@@ -5,6 +5,4 @@ cat << EOF
 addons: []
 default_process_types:
   web: npm start
-config_vars:
-  PATH: $PATH:/app/vendor/darknet  
 EOF
